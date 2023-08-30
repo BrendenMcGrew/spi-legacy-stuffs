@@ -1,0 +1,24 @@
+﻿{
+  "data": [
+    { 
+        "FullName": "Smith John James",
+        "Money": "$10.00"
+    },
+    { 
+        "FullName": "Micheal Hickey",
+        "Money": "$50,000.00"
+    },
+    { 
+        "FullName": "Dean Burrito",
+        "Money": "$5,000,000.00"
+    },
+    { 
+        "FullName": "Benjamin Mihalik",
+        "Money": "$500,000,000.00"
+    },
+    { 
+        "FullName": "Tyler Goad",
+        "Money": "$-5.00"
+    }
+  ]
+}

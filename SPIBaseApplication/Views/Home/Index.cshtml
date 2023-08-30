@@ -1,0 +1,42 @@
+﻿
+
+@{
+    ViewBag.Title = "Home Page";
+    <script src="~/JavaScript/Inprocess.js"></script>
+    <script src="~/JavaScript/IncidentAlerts.js"></script>
+}
+}
+
+@*table will go here*@
+<h1>In-Processed Individuals</h1>
+<div>
+    <table id="tblInProcessEmployees" style="width:100%">
+        <thead></thead>
+    </table>
+</div>
+<br />
+<br />
+<br />
+<hr />
+<h1>Out-Processed Individuals</h1>
+<div>
+    <table id="tblOutProcessEmployees" style="width:100%">
+        <thead></thead>
+    </table>
+</div>
+<br />
+<br />
+<br />
+<hr />
+<h1>Incident Reports</h1>
+<div>
+    <table id="tblEmployeeIncidents" style="width:100%">
+        <thead></thead>
+    </table>
+</div>
+
+@section scripts
+{
+   @* <script src="~/JavaScript/Inprocess.js"></script>*@
+   @* <script src="~/JavaScript/IncidentAlerts.js"></script>*@
+}

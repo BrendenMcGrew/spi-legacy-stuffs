@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPIBaseApplication", "SPIBaseApplication\SPIBaseApplication.csproj", "{3E56F87E-7130-4DDA-B6A8-83356C3FA12F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SPIApplicationTest", "SPIApplicationTest\SPIApplicationTest.csproj", "{EEEAB078-B433-4B1D-9457-720495965D21}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E56F87E-7130-4DDA-B6A8-83356C3FA12F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E56F87E-7130-4DDA-B6A8-83356C3FA12F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E56F87E-7130-4DDA-B6A8-83356C3FA12F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E56F87E-7130-4DDA-B6A8-83356C3FA12F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEEAB078-B433-4B1D-9457-720495965D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEEAB078-B433-4B1D-9457-720495965D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEEAB078-B433-4B1D-9457-720495965D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEEAB078-B433-4B1D-9457-720495965D21}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
+		SolutionGuid = {8E9AC40F-FE4E-43D9-A26F-880B5E45D29C}
+	EndGlobalSection
+EndGlobal

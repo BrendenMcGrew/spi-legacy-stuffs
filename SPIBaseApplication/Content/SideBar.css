@@ -1,0 +1,133 @@
+﻿html, body {
+    height:97.5%;
+}
+
+/*----------------------------------------------------------------------------------------------------------
+    COLORING (HEADER/FOOTER)
+----------------------------------------------------------------------------------------------------------*/
+
+.text_color {
+    color: #ffffff !important; /* changes the color of the font of the header and footer */
+}
+
+.background_color {
+    background: #000000 !important; /* changes the color of the header and footer */
+}
+
+/*----------------------------------------------------------------------------------------------------------
+    HEADER STYLE
+----------------------------------------------------------------------------------------------------------*/
+
+.navbar-custom {
+    height: 5%;
+    min-height:25px;
+    width: 100%;
+}
+
+#CUI {
+    align-content: normal;
+    text-align: center;
+}
+
+/*----------------------------------------------------------------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------------------------------------------------------------*/
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+}
+
+#sidebar {
+    width: 250px;
+    left: 0;
+    bottom: 0;
+    min-height: 100%;
+    height: 100%;
+    background: #554f4f; /* background color of the sidebar */
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #000000; /* adjusts the line below the list */
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.0em;       /* font size of links*/
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #000000;            /* Text color of hovered link */
+    background: #b1a3a3;    /* Background color of hovered link */
+}
+
+/* This is for drop down items */
+#sidebar ul li.active>a, a[aria-expanded="true"] {
+    color: #000000;         /* Text color of selected drop down */
+    background: #a49898;    /* Background color of selected drop down */
+}
+
+a [data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: relative;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.8em !important;
+    padding-left: 30px !important;
+    color: #000000;         /* Text color of drop down items */
+    background: #a49898;    /* Background color of drop down items*/
+}
+/* end of drop down functionality */
+
+/*.MenuLinks {
+    font-size: x-large; /* change font size of menu links 
+    font-style: normal; /* change font style of menu links 
+    color: #b6ff00; /* change text color of menu links  
+}*/
+
+a.class1:link {
+    color: #ffffff;
+}
+
+a.class1:visited {
+    color: #ffffff;
+}
+
+/*------------------------------------------------------------------------------------------------------------
+    CONTENT STYLE
+-------------------------------------------------------------------------------------------------------------*/
+
+#content {
+    position: absolute;
+    width: calc(100% - 250px);
+    height: calc(100% - (50px + 1.5rem));
+    padding: 40px;   
+    top: 50px; /* needs to be updated to the height based off the header bar */
+    right: 0;
+    overflow-y: scroll;
+}
+
+/*------------------------------------------------------------------------------------------------------------
+    FOOTER
+-------------------------------------------------------------------------------------------------------------*/
+
+#footer_CUI {
+    bottom: 0;
+    width: 100%;
+    height:1.4rem;
+    text-align: center;
+    position: fixed;
+    /*color: #ffffff;
+    background: #000000;*/
+}

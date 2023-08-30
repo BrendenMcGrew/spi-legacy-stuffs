@@ -1,0 +1,18 @@
+
+**************************************************
+***Dell Firmware Update started on 5/20/2021 at 5:51:29***
+Command: C:\ProgramData\Dell\UpdateService\Downloads\FOLDER07137348M\1\Precision_7X50_1.7.0.exe /s /f 
+
+SMB Table Address:815440:1a11
+WSMT Supported: Using WMI commands.
+Registry creation is Success at \SOFTWARE\DELL\FirmwareUpdate
+Dell Firmware Update Utility Version: 4.2.15
+
+
+Error: Invalid Password(s)
+
+The flash program will now exit due to incorrect password entry.  To re-attempt the flash upgrade, please run the program again.
+
+Exit Code = 7 (Password Validation failure)
+***BIOS flash finished at 5/20/2021 at 5:51:34***
+

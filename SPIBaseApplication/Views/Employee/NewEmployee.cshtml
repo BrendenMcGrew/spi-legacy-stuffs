@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewBag.Title = "NewEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add New Member</title>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    @*<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
+    <script src="~/JavaScript/NewEmployee.js"></script>
+
+</head>
+<body>
+    <h2>In-process</h2>
+    <h6><span style="color:red">*</span> Required information</h6>
+    <h3>Basic information</h3>
+    <hr />
+    <div class="input-area">
+        <label class="input-label" for="txtfirstname">First Name: <span style="color:red">*</span></label>
+        <input type="text" class="input-fields" id="txtfirstname" onkeypress="return lettersOnly(event)" />
+        <label class="input-label" for="txtlastname">Last Name: <span style="color:red">*</span></label>
+        <input type="text" class="input-fields" id="txtlastname" onkeypress="return lettersOnly(event)" />
+        <label class="input-label">Middle Name: </label>
+        <input type="text" class="input-fields" id="txtmiddlename" onkeypress="return lettersOnly(event)" />
+        <label class="input-label">SSN: <span style="color:red">*</span></label>
+        <input type="text" class="input-fields" id="txtssn" maxlength="9" onblur="AddDashes(event)" onfocus="RemoveDashes(event)" onkeypress="return NumbersOnly(event)" />
+        <label class="input-label">DoD ID: <span style="color:red">*</span></label>
+        <input type="text" class="input-fields" id="txtdodid" onkeypress="return NumbersOnly(event)" maxlength="10" />
+        <label class="input-label">Rank: <span style="color:red">*</span></label>
+        <select class="input-fields" id="cboRank">
+            <option value="1">First Lieutenant</option>
+            <option value="2">Second Lieutenant</option>
+            <option value="3">Airman First Class</option>
+            <option value="4">Airman Basic</option>
+            <option value="5">Airman</option>
+            <option value="6">Brigadier General</option>
+            <option value="7">Captain</option>
+            <option value="8">Civilian</option>
+            <option value="9">Chief Master Sergeant</option>
+            <option value="10">Colonel</option>
+            <option value="11">Contractor</option>
+            <option value="12">FLT OFF</option>
+            <option value="13">General</option>
+            <option value="14">Lieutenant Colonel</option>
+            <option value="15">Lieutenant General</option>
+            <option value="16">Major</option>
+            <option value="17">Major General</option>
+            <option value="18">MCPL</option>
+            <option value="19">Master Sergeant</option>
+            <option value="20">Senior Master Sergeant</option>
+            <option value="21">Senior Airman</option>
+            <option value="22">Staff Sergeant</option>
+            <option value="23">Technical Sergeant</option>
+            <option value="24">Warrant Officer</option>
+            <option value="25">Second Lieutenant</option>
+            <option value="26">UNK</option>
+        </select>
+        <label class="input-label">Unit: <span style="color:red">*</span></label>
+        <input type="text" class="input-fields" id="txtunit" />
+        <label class="input-label">Office Symbol:</label>
+        <select class="input-fields" id="txtofficesymbol">
+            <option value="1">DOU</option>
+        </select>
+        <label class="input-label">Attached:</label>
+        <input type="text" class="input-fields" id="txtattached" />
+        <label class="input-label">Crew Position:</label>
+        <input type="text" class="input-fields" id="txtCrewPosition" />
+        <label class="input-label">PAFSC:</label>
+        <input type="text" class="input-fields" id="txtpafsc" />
+        <label class="input-label">DSN:</label>
+        <input type="tel" class="input-fields" id="txtdsn" pattern="[0-9]{3}-[0-9]{4}" maxlength="7" />
+        <label class="input-label">In-process Date:</label>
+        <input type="date" class="input-fields" id="InprocessDate" />
+        <label class="input-label">In-processed By:</label>
+        <input type="text" class="input-fields" id="InprocessedBy" />
+    </div>
+    <hr />
+    @*Personal information*@
+    <h3>Personal information</h3>
+    <hr />
+    <div class="input-area">
+        <label class="input-label">Height:</label>
+        <input type="text" class="input-fields" id="txtheight" />
+        <label class="input-label">Hair Color: </label>
+        <select class="input-fields" id="cbohairColor">
+            <option value="1">Brown</option>
+            <option value="2">Blonde</option>
+            <option value="3">Ginger</option>
+        </select>
+        <label class="input-label">Eye Color: </label>
+        <select class="input-fields" id="cboeyeColor">
+            <option value="1">Brown</option>
+            <option value="2">Blue</option>
+            <option value="3">Hazel</option>
+        </select>
+        <label class="input-label">Weight:</label>
+        <input type="text" class="input-fields" id="txtweight" />
+        <label class="input-label">Phone Number: </label>
+        <input type="tel" class="input-fields" id="personalPhone" onblur="AddDashes(event)" onfocus="RemoveDashes(event)" onkeypress="return NumbersOnly(event)" maxlength="10" />
+        <label class="input-label">Current Zip Code: </label>
+        <input type="text" class="input-fields" id="txtzipcode" maxlength="5" onkeypress="return NumbersOnly(event)" />
+        <label class="input-label">Current Address:</label>
+        <input type="text" class="input-fields" id="txtAddress" />
+        <label class="input-label">Current City: </label>
+        <input type="text" class="input-fields" id="txtCurrentCity" onkeypress="return lettersOnly(event)"/>
+        <label class="input-label">Current State: </label>
+        <select class="input-fields" id="cboCurrentState">
+            <option value="1">Texas</option>
+            <option value="2">Florida</option>
+            <option value="3">Oklahoma</option>
+        </select>
+    </div>
+    <hr>
+    @*Clearance information*@
+    <h3>Clearance</h3>
+    <hr />
+    <div class="input-area">
+        <label class="input-label">Clearance:</label>
+        <select class="input-fields" id="cboClearance">
+            <option value="1">SCI</option>
+            <option value="2">Secret</option>
+            <option value="3">Top secret</option>
+        </select>
+        <label class="input-label">Clearance Status: </label>
+        <input type="text" class="input-fields" id="txtClearanceStatus" />
+        <label class="input-label">Eligibility: </label>
+        <input type="text" class="input-fields" id="txtEligibility" />
+        <label class="input-label">Investigation Close Date:</label>
+        <input type="date" class="input-fields" id="InvestigationCloseDate" />
+        <label class="input-label">Investigation Type:</label>
+        <select class="input-fields" id="cboInvestigationType">
+            <option value="1">SCI</option>
+            <option value="2">Secret</option>
+            <option value="3">Top secret</option>
+        </select>
+        <label class="input-label">Adjudication Date:</label>
+        <input type="date" class="input-fields" id="AdjudicationDate" />
+        <label class="input-label">CE Deferment Date:</label>
+        <input type="date" class="input-fields" id="ceDefermentDate" />
+        <label class="input-label">Date of Birth: <span style="color:red">*</span></label>
+        <input type="date" class="input-fields" id="DateOfBirth" required />
+        <label class="input-label">Birth City: <span style="color:red">*</span></label>
+        <input type="text" class="input-fields" id="txtBirthCity" onkeypress="return lettersOnly(event)" />
+
+        <label class="input-label">Birth State: <span style="color:red">*</span></label>
+        <select class="input-fields" id="cboBirthState">
+            <option value="1">Texas</option>
+            <option value="2">Florida</option>
+            <option value="3">Oklahoma</option>
+        </select>
+        <label class="input-label">Birth Country: <span style="color:red">*</span></label>
+        <input type="text" class="input-fields" id="txtBirthCountry"  onkeypress="return lettersOnly(event)" />
+        <label class="input-label">US Citizenship: <span style="color:red">*</span></label>
+        <select class="input-fields" id="cboCitizenship">
+            <option value="1">US CITIZEN</option>
+            <option value="2">NON-US NATIONAL</option>
+        </select>
+
+        <label class="input-label">Work E-mail: <span style="color:red">*</span></label>
+        <input type="text" class="input-fields" id="workemail" required />
+        <label class="input-label">SCI:</label>
+        <input type="checkbox" id="isSCI" />
+        <label class="input-label">Eligibility Date: </label>
+        <input type="date" class="input-fields" id="EligibilityDate" required />
+    </div>
+    <button id="btnSave" onclick="pullData()">Create New Member</button>
+</body>

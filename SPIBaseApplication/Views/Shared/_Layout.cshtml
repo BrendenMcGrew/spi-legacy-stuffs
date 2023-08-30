@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <link rel="stylesheet" href="\Content\SideBar.css" type="text/css" />
+
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand navbar-custom background_color">
+
+        <!-- This is the LOGO that takes you to the home page -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="navbar-brand nav-link text_color" href="/Home/Index">SPI</a>
+            </li>
+        </ul>
+        <!-- Adds CUI to the center of the top navbar -->
+        <ul class="navbar-nav mx-auto text_color">
+            <li id="CUI">
+                <a>CUI</a>
+            </li>
+        </ul>
+        <!-- This binds the logout to the right side -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <!------------------------------------------------------------------------------
+            Update the href for the login page and the span for the logout symbol
+            ------------------------------------------------------------------------------>
+                <a class="nav-link text_color" href="/"><span class="fas fa-sign-out-alt"></span>Logout</a>
+
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Sidebar -->
+    @*<div class="wrapper">*@
+        <nav id="sidebar">
+            <!-- Removes the default list styling -->
+            <ul class="list-unstyled components text_color_sidebar">
+                <li class="nav-item class1">
+                    <!-- Takes you to the Subjects page -->
+                    <a href="/Employee/EmployeeInfo" class="class1">View Subjects</a>
+                    @*@Html.ActionLink("View Subjects", "WIP", "Home")*@
+                </li>
+                <li class="nav-item class1">
+                    <!-- Takes the user to the In Progress page -->
+                    <a href="/Employee/NewEmployee" class="class1">In Process</a> 
+                    @*@Html.ActionLink("In Process", "WIP", "Home")*@
+                </li>
+                <li class="nav-item class1">
+                    <a href="/Home/About" class="class1">Reports</a>
+                    @*@Html.ActionLink("Reports", "WIP", "Home")*@
+                </li>
+                <li class="nav-item class1">
+                    <a href="/Home/WIP" class="class1">Forms/Templates</a>
+                    @*@Html.ActionLink("Forms/Templates", "WIP", "Home")*@
+                </li>
+
+                <!-- This is code for a collapsable drop down menu -->
+                @*<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reports</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+            <li>
+                <a href="#">Page 1</a>
+            </li>
+            <li>
+                <a href="#">Page 2</a>
+            </li>
+            <li>
+                <a href="#">Page 3</a>
+            </li>
+        </ul>*@
+            </ul>
+        </nav>
+    @*</div>*@
+
+
+    <!-- All of the actual content for the pages appears here -->
+    <div id="content">
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text_color">
+        <div id="footer_CUI">
+            <p class="background_color">CUI</p>
+        </div>
+    </footer>
+
+
+</body>
+</html>

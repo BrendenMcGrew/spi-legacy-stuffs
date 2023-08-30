@@ -1,0 +1,22 @@
+﻿@model List<SPIBase.Models.Employee>
+
+@{
+    ViewBag.Title = "EmployeeInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @*<link rel="stylesheet" href="..\Content\Pages.css" type="text/css" />*@
+}
+
+
+@*table will go here*@
+<div>
+    <table id="tblEmployees" style="width:100%">
+        <thead></thead>
+    </table>
+</div>
+
+@section scripts
+{
+    <script src="~/JavaScript/EmployeeGrid.js"></script>
+}
+
+

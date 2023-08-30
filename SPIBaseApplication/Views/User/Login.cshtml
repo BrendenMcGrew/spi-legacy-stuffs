@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+  //  Layout = null;
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Tabs - Default functionality</title>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/JavaScript/Tabs.js"></script>
+    <link rel="stylesheet" href="~/Content/Site.css" />
+</head>
+@using (Html.BeginForm())
+{
+    if (TempData["message"] != null)
+    {
+        <div class="red-text medium-font-size">
+            @TempData["message"]
+        </div>
+    }
+    {
+        <form>
+            <div id="title-div" class="container horizontal-center">
+                <div class="light-blue-background jumbo-font-size padding-20">Security Program Interface</div>
+            </div>
+
+            <div id="button-div" class="container horizontal-center padding-96">
+                <input type="button" value="CAC Login" class="button" onclick="location.href='@Url.Action("StartAuthenticate", "User")'" />
+            </div>
+
+            <div id="info-div" class="container">
+                <div class="big-textbox">
+                    <p>PLEASE in-process and out-process all personnel within this database.</p>
+                    <br />
+                    <p>In-Processing: Click "In-process Personnel" and scan the front of the member's CAC.  If you do not have a scanner, exit the pop-up window and enter SSN, Full Name, Rank, Line Badge Information, e-mail, and Training Dates.</p>
+                    <br />
+                    <p>Out-Processing: Make a note in the "Member Notes" section (PCS, Separation, or Retirement), click the "Out-process" button, then out-process accordingly.</p>
+                </div>
+            </div>
+        </form>
+    }
+}

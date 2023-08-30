@@ -1,0 +1,306 @@
+﻿
+@{
+    ViewBag.Title = "Employee Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Tabs - Default functionality</title>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/JavaScript/Tabs.js"></script>
+    <script src="~/JavaScript/AdverseActionsTab.js"></script>
+
+    @*@Html.Raw("<script>" + ViewBag.DynamicScripts + "</script>")
+
+    <script type="text/javascript">
+
+        function ShowErrorPopup() {
+            alert('Sorry, we could not process your order.');
+        }
+
+    </script>*@
+
+</head>
+<body>
+
+    <h2>@ViewBag.Employee.Rank<br />@Html.Label("FullName", (string)ViewBag.Employee.FullName, new { id = "FullName" })</h2>
+    <div>
+        <label></label>
+    </div>
+
+    <div id="tab-display">
+        <div id="tabs">
+            <ul>
+                <li><a href="#PersonalInformation">Personal Information</a></li>
+                <li><a href="#Clearance">Clearance</a></li>
+                <li><a href="#PeriodicReview">Periodic Review</a></li>
+                <li><a href="#Documents">Documents</a></li>
+                <li><a href="#RAB">RAB</a></li>
+                <li><a href="#Actions">Actions</a></li>
+                <li><a href="#AdverseActions">Incident Report</a></li>
+            </ul>
+            @* Personal Information Tab *@
+            <div class="tab-body" id="PersonalInformation">
+                <div class="details-area">
+                    <label class="input-label">SSN:</label>
+                    <input type="text" readonly="readonly" class="input-fields" id="txtfname" value="@ViewBag.Employee.SSN" />
+                    <label class="input-label">DoD ID:</label>
+                    <input type="text" readonly="readonly" class="input-fields" id="txtlname" value="@ViewBag.Employee.DODIDNumber" />
+                    <label class="input-label">Date of birth:</label>
+                    <input type="date" readonly="readonly" class="input-fields" value="@ViewBag.Employee.BirthDate" />
+                    <label class="input-label">Birth city:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.BirthCity" />
+                    <label class="input-label">Birth State:</label>
+                    <select id="ddlStates" class="input-fields">
+                        @*@Html.DropDownList("StateID", new SelectList(ViewBag.States, "StateID", "StateCode")))*@
+                        @foreach (var item in ViewBag.States)
+                        {
+                            if (item.StateID == ViewBag.Employee.StateID)
+                            {
+                                <option selected="selected" value="@item.StateID"> @item.StateCode </option>
+                            }
+                            else
+                            {
+                                <option value="@item.StateID"> @item.StateCode </option>
+                            }
+                        }
+                    </select>
+                    <label class="input-label">Birth country:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.BirthCountry" />
+                    <label class="input-label">Citizenship:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.CitizenShip" />
+                </div>
+                <hr />
+                <div class="details-area">
+                    <label class="input-label">Unit:</label>
+                    <input type="text" readonly="readonly" class="input-fields" id="txtlname" value="@ViewBag.Employee.Unit" />
+                    <label class="input-label">Office symbol:</label>
+                    <input type="text" readonly="readonly" class="input-fields" />
+                    <label class="input-label">Attached:</label>
+                    <input type="text" readonly="readonly" class="input-fields" id="txtlname" value="@ViewBag.Employee.Attached" />
+                    <label class="input-label">DSN:</label>
+                    <input type="tel" readonly="readonly" class="input-fields" pattern="[0-9]{3}-[0-9]{4}" required value="@ViewBag.Employee.DSN" />
+                    <label class="input-label">Work E-mail:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.EmailAddress" />
+                </div>
+                <hr />
+                <div class="details-area">
+                    <label class="input-label">Crew position:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.CrewPosition" />
+                    <label class="input-label">PAFSC:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.PAFSC" />
+                </div>
+                <hr />
+                <div class="details-area">
+                    <label class="input-label">Record update:</label>
+                    <input type="date" readonly="readonly" class="input-fields" value="@ViewBag.Employee.RecordLastUpdated" />
+                    <label class="input-label">Last DISS update:</label>
+                    <input type="date" readonly="readonly" class="input-fields" value="@ViewBag.Employee.LastDissUpdate" />
+                    <label class="input-label">In-process date:</label>
+                    <input type="date" readonly="readonly" class="input-fields" value="@ViewBag.Employee.InProcessDate" />
+                    <label class="input-label">In-processed by:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.InProcessedBy" />
+                </div>
+                <hr />
+                <div class="Notes-area">
+                    <label>Member Notes</label>
+                    <textarea readonly="readonly" class="long-input-box" rows="3"></textarea>
+                </div>
+            </div>
+            @* Clearance Tab *@
+            <div class="tab-body" id="Clearance">
+
+                <div class="details-area">
+                    <label class="input-label">Clearance:</label>
+                    <input type="text" readonly="readonly" class="input-fields" id="txtlname" value="@ViewBag.Employee.Clearance" />
+                    <label class="input-label">Clearance Status: </label>
+                    <input type="text" readonly="readonly" class="input-fields" id="txtlname" value="@ViewBag.Employee.ClearanceStatus" />
+                    <label class="input-label">Eligibility: </label>
+                    <input type="text" readonly="readonly" class="input-fields" id="txtlname" value="@ViewBag.Employee.Eligibility" />
+                </div>
+                <hr />
+                <div class="details-area">
+                    <label class="input-label">Investigation Close Date:</label>
+                    <input type="date" readonly="readonly" class="input-fields" value="@ViewBag.Employee.InvestigationCloseDate" />
+                    <label class="input-label">Investigation Type:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.InvestType" />
+                </div>
+                <hr />
+                <div class="details-area">
+                    <label class="input-label">Adjudication Date:</label>
+                    <input type="date" readonly="readonly" class="input-fields" value="@ViewBag.Employee.InitialAnnualTraining" />
+                    <label class="input-label">CE Deferment Date:</label>
+                    <input type="date" readonly="readonly" class="input-fields" value="@ViewBag.Employee.ceDerfermentDate" />
+                </div>
+                <hr />
+                <div class="details-area">
+                    <label class="input-label">Days left:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="" />
+                </div>
+            </div>
+            @* Periodic Review Tab *@
+            <div class="tab-body" id="PeriodicReview">
+                <div class="details-area">
+                    
+                </div>
+            </div>
+            @* Documents Tab *@
+            <div class="tab-body" id="Documents">
+                <div>
+                    <div style="display:inline">
+                        <label>Please choose a form to view</label>
+                        <br />
+                    </div>
+                    <select id="requestedPDF" class="input-fields" style="width: 300px;">
+                        <option>--Please choose an option--</option>
+                        <option value="2586">2586</option>
+                        <option value="2875">2875</option>
+                        <option value="DerivitiveClassification">Derivative Classification</option>
+                        <option value="MarkingClassified">Marking Classified</option>
+                        <option value="NATOindoc">Nato Indoctrination</option>
+                        <option value="SecurityTrainingConfirmation">Security Training Confirmation Memo</option>
+                    </select>
+                    <input type="button" Value="View File" />
+                    <hr />
+
+                    <div>
+                        <label>Upload a PDF</label>
+                        @using (Html.BeginForm("UploadFile", "EmployeeDetails", new { fullname = @ViewBag.Employee.FullName, RowID = ViewBag.Employee.UniqueKey }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div>
+                                <select id="requestedPDF" class="input-fields" style="width: 300px;">
+                                    <option>--Please choose an option--</option>
+                                    <option value="2586">2586</option>
+                                    <option value="2875">2875</option>
+                                    <option value="DerivitiveClassification">Derivative Classification</option>
+                                    <option value="MarkingClassified">Marking Classified</option>
+                                    <option value="NATOindoc">Nato Indoctrination</option>
+                                    <option value="SecurityTrainingConfirmation">Security Training Confirmation Memo</option>
+                                </select>
+                                @Html.TextBox("file", "", new { type = "file", accept = "application/pdf" })
+                                &nbsp&nbsp  <input type="submit" id="Upload" value="Upload" />  &nbsp&nbsp
+                                <label> <b> @ViewBag.FileMsg </b>@ViewBag.FileMsgLast </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            @* RAB Tab *@
+            <div class="tab-body" id="RAB">
+                <div class="details-area">
+                    <label class="input-label">Line badge number:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.LineBadgeNumber" />
+                    <label class="input-label">Escort:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.EmailAddress" />
+                </div>
+                <hr />
+                <div class="details-area">
+                    <label class="input-label">Height:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.Height" />
+                    <label class="input-label">Weight:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.Weight" />
+                    <label class="input-label">Hair color:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.HairColor" />
+                    <label class="input-label">Eye color:</label>
+                    <input type="text" readonly="readonly" class="input-fields" value="@ViewBag.Employee.EyeColor" />
+                    <input type="text" id="WhichTab" hidden value="@ViewBag.Secret" />
+                </div>
+            </div>
+            @* Actions Tab *@
+            <div class="tab-body" id="Actions">
+                <div>
+                    <input type="button" value="LOST 1199c MFR" />
+                    <input type="button" value="LOST 2586 MFR" />
+                    <input type="button" value="OUTPROCESS" />
+                    <input type="button" value="DELETE" />
+                </div>
+            </div>
+            @*Adverse Actions Tab*@
+            <div class="tab-body" id="AdverseActions">
+                <div>
+                    <label class="input-label">Incident Date:</label>
+                    <input type="date" class="input-fields" id="dboIncidentDate"/>
+                </div>
+                <div>
+                    <label class="input-label">Report Date:</label>
+                    <input type="date" class="input-fields" id="dboReportDate"/>
+                </div>
+                <div>
+                    <label class="input-label">Self reported?:</label>
+                    <input type="checkbox" name="SelfReport" id="ckbSelfReport"/>
+                </div>
+                <div>
+                    <label class="input-label">Adjudication Guideline: </label>
+                    <select id="ddlAdjudications" class="input-fields">
+                        @foreach (var item in ViewBag.Adjudication)
+                        {
+                            <option value="@item.AdjudicationID"> @item.AdjudicationGuideline </option>
+                        }
+                    </select>
+
+                    @*<label class="input-label">Adjudication Guideline: </label>
+                            <select class="input-fields">
+                                <option>Choose an option</option>
+                                <option>Guideline A: Allegiance to the United States</option>
+                                <option>Guideline B: Foreign Influence</option>
+                                <option>Guideline C: Foreign Preference</option>
+                                <option>Guideline D: Sexual Behavior</option>
+                                <option>Guideline E: Personal Conduct</option>
+                                <option>Guideline F: Financial Considerations</option>
+                                <option>Guideline G: Alcohol Consumption</option>
+                                <option>Guideline H: Drug Involvement and Substance Misuse</option>
+                                <option>Guideline I: Psychological Conditions</option>
+                                <option>Guideline J: Criminal Conduct</option>
+                                <option>Guideline K: Handling Protected Information</option>
+                                <option>Guideline L: Outside Activities</option>
+                                <option>Guideline M: Use of Informatin Technology</option>
+                            </select>*@
+                </div>
+                <div>
+                    <div>
+                        @using (Html.BeginForm("SaveIncidentFile", "EmployeeDetails", new { fullname = @ViewBag.Employee.FullName, RowID = ViewBag.Employee.UniqueKey }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <label class="input-label">Notes:</label>
+                            <br />
+                            <textarea name="IncidentNotes" id="IncidentNotes" runat="server" class="long-input-box" rows="4" onkeyup="CharCount()" maxlength="3000"></textarea>
+                            <br />
+                            <label id="WordCount" class="Char-count-label">3000 characters left</label>
+                            <div>
+                                <label class="input-label">Close Date:</label>
+                                <input type="date" class="input-fields" id="dboCloseDate"/>
+                            </div>
+                            <div>
+                                <label class="input-label">Verdict: </label>
+                                <select class="input-fields" id="ddlVerdict">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="input-label">Documents: </label>
+                                @Html.TextBox("files", "", new { type = "file", multiple = "multiple", accept = "application/pdf" })
+                            </div>
+                            <br />
+                            <div>
+                                @*<input type="submit" id="Save" value="Save" onclick="PushIncident()" />*@
+                                <input type="submit" id="Save" value="Save" onclick="PushIncident()" />
+                                <label> @ViewBag.Incident </label>
+                            </div>
+                        }
+                    </div>
+                    <br />
+                    <hr />
+                    <br />
+                    <table id="tblMemberIncident" style="width:100%">
+                        <thead></thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

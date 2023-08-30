@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+@*@{
+    WebGrid myGrid = new WebGrid(source: Model, canSort: false, canPage: false);
+}*@
+
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/TestStyleSheet.css" type="text/css" />
+
+</head>
+<body>
+    <table id="tblexample" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                @*<th>Open Date</th>
+                <th>Close Date</th>*@
+            </tr>
+        </thead>
+    </table>
+  
+    @*<h1>Reports</h1>
+    <div>
+        <table id="tblTestChild" style="width:100%">
+            <thead></thead>
+        </table>
+    </div>*@
+</body>
+</html>
+
+@section scripts
+{
+    <script src="~/JavaScript/Test.js"></script>
+}
+
